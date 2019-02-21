@@ -39,7 +39,6 @@ nnoremap k gk
 syntax on
 colorscheme molokai
 set t_Co=256
-
 " Tab系
 " 不可視文字を可視化(タブが「▸-」と表示される)
 " Tab文字を半角スペースにする
@@ -103,7 +102,6 @@ endif
 if dein#check_install()
   call dein#install()
 endif
-
 
 
 let g:acp_enableAtStartup = 0
@@ -182,5 +180,6 @@ au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 """"""""""""""""""""""""""""""
 
+autocmd VimEnter * execute 'NERDTree'
 filetype plugin indent on
 syntax enable

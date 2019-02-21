@@ -22,6 +22,8 @@ let g:go_highlight_operators = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
 let g:go_fmt_command = "goimports"
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave_enabled = ['vet']
 '''
 
 
@@ -33,3 +35,7 @@ repo = 'Shougo/neocomplete.vim'
 repo = 'Shougo/deoplete.nvim'
 # プラグインが dein.vim によって追加されたとき実行
 hook_add = 'let g:deoplete#enable_at_startup = 1'
+
+[[plugins]] # コード補完（Golang用）
+repo = 'zchee/deoplete-go'
+on_ft = 'go'

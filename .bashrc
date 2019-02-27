@@ -18,7 +18,6 @@ function find_cd() {
 }
 alias fc="find_cd"
 
-export PS1='\[\e[36m\]\u@ \W\[\e[31m\]$(__git_ps1 " (%s)")\n\[\e[0m\]\\$ '
 function peco-cd {
   local sw="1"
   while [ "$sw" != "0" ]

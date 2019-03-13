@@ -32,6 +32,8 @@ set laststatus=2
 " コマンドラインの補完
 set wildmode=list:longest
 set helplang=en
+
+set clipboard=unnamed
 " 折り返し時に表示行単位での移動できるようにする
 nnoremap j gj
 nnoremap k gk
@@ -206,6 +208,16 @@ nnoremap sq :<C-u>q<CR>
 nnoremap sQ :<C-u>bd<CR>
 nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
 nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
+
+call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
+call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
+call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
+call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
+call submode#map('bufmove', 'n', '', '>', '<C-w>>')
+call submode#map('bufmove', 'n', '', '<', '<C-w><')
+call submode#map('bufmove', 'n', '', '+', '<C-w>+')
+call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+
 
 au FileType go nmap <silent> <leader>r <Plug>(go-run)
 au FileType go nmap <silent> <Leader>s <Plug>(go-def-split)

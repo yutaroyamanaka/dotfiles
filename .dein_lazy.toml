@@ -34,7 +34,11 @@ repo = 'Shougo/neocomplete.vim'
 [[plugins]] # コード補完
 repo = 'Shougo/deoplete.nvim'
 # プラグインが dein.vim によって追加されたとき実行
-hook_add = 'let g:deoplete#enable_at_startup = 1'
+hook_add = '''
+let g:deoplete#enable_at_startup = 1
+let g:python3_host_prog=$PYENV_ROOT.'/versions/anaconda3-5.3.1/bin/python'
+let g:python_host_prog=$PYENV_ROOT.'/versions/2.7/bin/python'
+'''
 
 [[plugins]] # コード補完（Golang用）
 repo = 'zchee/deoplete-go'

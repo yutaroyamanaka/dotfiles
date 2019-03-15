@@ -44,3 +44,9 @@ repo = 'Shougo/unite.vim'
 
 [[plugins]]
 repo = 'simeji/winresizer'
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
+
+
+

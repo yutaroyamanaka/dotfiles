@@ -18,8 +18,6 @@ set fileformats=unix,dos,mac
 " 見た目系
 " 行番号を表示
 set number
-" 現在の行を強調表示
-set cursorline
 " 行末の1文字先までカーソルを移動できるように
 set virtualedit=onemore
 " インデントはスマートインデント
@@ -39,6 +37,8 @@ nnoremap j gj
 nnoremap k gk
 
 syntax on
+autocmd ColorScheme * highlight Normal ctermbg=none
+autocmd ColorScheme * highlight LineNr ctermbg=none
 colorscheme molokai
 set t_Co=256
 " Tab系

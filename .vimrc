@@ -13,7 +13,6 @@ set hidden
 set showcmd
 
 set encoding=utf-8
-set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 set fileformats=unix,dos,mac
 " 見た目系
 " 行番号を表示
@@ -39,6 +38,7 @@ nnoremap k gk
 syntax on
 autocmd ColorScheme * highlight Normal ctermbg=none
 autocmd ColorScheme * highlight LineNr ctermbg=none
+
 colorscheme molokai
 set t_Co=256
 " Tab系

@@ -12,11 +12,6 @@ PATH=${ANDROID_HOME}/ndk-bundle:${PATH}
 
 alias ll="ls -la"
 alias his="history"
-alias k="kubectl"
-function find_cd() {
-    cd "$(find . -type d | peco)"  
-}
-alias fc="find_cd"
 
 function peco-cd {
   local sw="1"
@@ -53,18 +48,5 @@ function peco-cd {
 }
 alias sd='peco-cd'
 
-function ghql() {
-  local selected_file=$(ghq list --full-path | peco --query "$LBUFFER")
-  if [ -n "$selected_file" ]; then
-    if [ -t 1 ]; then
-      echo ${selected_file}
-      cd ${selected_file}
-      pwd
-    fi
-  fi
-}
-
-bind -x '"\201": ghql'
-bind '"\C-g":"\201\C-m"'
 
 alias vim='nvim'

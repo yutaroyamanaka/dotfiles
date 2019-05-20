@@ -17,9 +17,9 @@ ln -s ~/dotfiles/.bashrc ~/.bashrc
 ln -s ~/dotfiles/.git-completion.bash ~/.git-completion.bash
 ln -s ~/dotfiles/.git-prompt.sh ~/.git-prompt.sh
 ln -s ~/dotfiles/.dein.toml ~/.cache/dein/.dein.toml
-ln -s ~/dotfiles/.dein_lazy.toml ~/.cache/.dein_lazy.toml
+ln -s ~/dotfiles/.dein_lazy.toml ~/.cache/dein/.dein_lazy.toml
 
-mkdir ~/.config/nvim
+mkdir -p ~/.config/nvim
 ln -s ~/dotfiles/init.vim ~/.config/nvim/init.vim
 
 mkdir -p ~/.vim/colors

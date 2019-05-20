@@ -1,6 +1,16 @@
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install neovim 
-brew install git
+case "${OSTYPE}" in
+  darwin*)
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    brew install neovim 
+    brew install git
+    ;;
+  linux*)
+    sudo apt-get update
+    sudo apt-get install neovim
+    sudo apt-get install python3-dev python3-pip
+    ;;
+esac
+
 
 ln -s ~/dotfiles/.vimrc ~/.vimrc
 ln -s ~/dotfiles/.bashrc ~/.bashrc

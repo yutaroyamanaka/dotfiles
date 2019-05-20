@@ -12,6 +12,8 @@ PATH=${ANDROID_HOME}/ndk-bundle:${PATH}
 
 alias ll="ls -la"
 alias his="history"
+alias svu="VBoxManage startvm ubuntu"
+alias pou="VBoxManage controlvm ubuntu poweroff"
 
 function peco-cd {
   local sw="1"
@@ -50,3 +52,19 @@ alias sd='peco-cd'
 
 
 alias vim='nvim'
+
+function random_cowsay() {
+    # Only brew user!
+    # If you are not brew user, change 'COWS' path
+    COWS=`brew --prefix`/Cellar/cowsay/3.04/share/cows
+    NBRE_COWS=$(ls -1 $COWS | wc -l)
+    COWS_RANDOM=$(expr $RANDOM % $NBRE_COWS + 1)
+    COW_NAME=$(ls -1 $COWS | awk -F\. -v COWS_RANDOM_AWK=$COWS_RANDOM 'NR == COWS_RANDOM_AWK {print $1}')
+    cowsay -f $COW_NAME "`Fortune -s`"
+}
+if which fortune cowsay >/dev/null; then
+    while :
+    do
+        random_cowsay 2>/dev/null && break
+    done
+fi && unset -f random_cowsay

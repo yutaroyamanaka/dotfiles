@@ -9,6 +9,12 @@ ln -s ~/dotfiles/.git-prompt.sh ~/.git-prompt.sh
 ln -s ~/dotfiles/.dein.toml ~/.cache/dein/.dein.toml
 ln -s ~/dotfiles/.dein_lazy.toml ~/.cache/.dein_lazy.toml
 
+mkdir ~/.config/nvim
+ln -s ~/dotfiles/init.vim ~/.config/nvim/init.vim
+
 mkdir -p ~/.vim/colors
 git clone https://github.com/tomasr/molokai
 mv molokai/colors/molokai.vim ~/.vim/colors/
+
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

@@ -5,9 +5,9 @@ case "${OSTYPE}" in
     brew install git
     ;;
   linux*)
+    sudo apt-get install software-properties-common
     sudo apt-get update
     sudo apt-get install neovim
-    sudo apt-get install python3-dev python3-pip
     ;;
 esac
 

@@ -1,5 +1,5 @@
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
-let g:python_host_prog = expand('~/.pyenv/versions/anaconda-4.0.0/bin/python2')
-let g:python3_host_prog = expand('~/.pyenv/versions/anaconda3-5.2.0/bin/python3')
+let g:python_host_prog = system('(type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(pyenv global | grep python2)/bin/python") || echo -n $(which python2)')
+let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(pyenv global | grep python3)/bin/python") || echo -n $(which python3)')
 source ~/.vimrc

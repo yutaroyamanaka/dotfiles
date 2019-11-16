@@ -230,6 +230,8 @@ au FileType go nmap <silent> <leader>ki :GoKeyify<CR>
 au FileType go nmap <silent> <leader>dd :GoDeclsDir<CR>
 au FileType go nmap <silent> <leader>ip :GoImpl<CR>
 
+autocmd FileType python setlocal completeopt-=preview<Paste>
+
 
 autocmd VimEnter * execute 'NERDTree'
 filetype plugin indent on

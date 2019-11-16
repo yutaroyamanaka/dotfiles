@@ -39,4 +39,12 @@ repo = 'simeji/winresizer'
 repo = 'cohama/lexima.vim'
 
 
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+
+[[plugins]]
+repo = 'ervandew/supertab'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
 

@@ -5,15 +5,13 @@ GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWUPSTREAM="auto"
 GIT_PS1_SHOWCOLORHINTS=true
-export PS1='\[\e[36m\]\u@ \W\[\e[31m\]$(__git_ps1 " (%s)")\n\[\e[0m\]\\$ '
+export PS1='\[\e[36m\]yutaro@ \W\[\e[31m\]$(__git_ps1 " (%s)")\n\[\e[0m\]\\$ '
 export ANDROID_HOME=/Users/yutaro/Library/Android/sdk
 PATH=${ANDROID_HOME}/platform-tools:${PATH}
 PATH=${ANDROID_HOME}/ndk-bundle:${PATH}
 
 alias ll="ls -la"
 alias his="history"
-alias svu="VBoxManage startvm ubuntu"
-alias pou="VBoxManage controlvm ubuntu poweroff"
 
 function peco-cd {
   local sw="1"

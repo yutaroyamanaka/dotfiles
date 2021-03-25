@@ -43,7 +43,6 @@ repo = 'simeji/winresizer'
 [[plugins]]
 repo = 'cohama/lexima.vim'
 
-
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
 

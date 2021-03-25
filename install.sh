@@ -10,17 +10,17 @@ case "${OSTYPE}" in
     sudo apt update
     sudo apt install software-properties-common
     sudo apt install -y \
-	build-essential \
-	libffi-dev \
-	libssl-dev \
-	zlib1g-dev \
-	liblzma-dev \
-	libbz2-dev \
-	libreadline-dev \
-	libsqlite3-dev \
-  curl \
-  git 
-    sudo apt install -y neovim curl git 
+    build-essential \
+    libffi-dev \
+    libssl-dev \
+    zlib1g-dev \
+    liblzma-dev \
+    libbz2-dev \
+    libreadline-dev \
+    libsqlite3-dev \
+    curl \
+    git \
+    neovim
     ;;
 esac
 

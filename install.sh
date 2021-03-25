@@ -30,7 +30,6 @@ ln -s ~/dotfiles/.dein_lazy.toml ~/.cache/dein/.dein_lazy.toml
 
 read -p "Activate neovim? (y/n) :" YN
 if [ "${YN}" = "y" ]; then 
-    ln -s ~/dotfiles/.bashrc ~/.bashrc
     mkdir -p ~/.config/nvim
     ln -s ~/dotfiles/init.vim ~/.config/nvim/init.vim
 fi

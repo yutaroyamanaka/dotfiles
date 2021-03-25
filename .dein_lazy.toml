@@ -4,6 +4,9 @@ on_ft = 'toml'
 
 [[plugins]] # ステータス行を見やすく
 repo = 'itchyny/lightline.vim'
+hook_add = '''
+let g:lightline = {'colorscheme' : 'solarized dark'}
+'''
 
 #[[plugins]] # goコマンド補完
 #repo = 'fatih/vim-go'
@@ -26,15 +29,15 @@ repo = 'itchyny/lightline.vim'
 [[plugins]] # neocomplete
 repo = 'Shougo/neocomplete.vim'
 
-[[plugins]] # コード補完
-repo = 'Shougo/deoplete.nvim'
-# プラグインが dein.vim によって追加されたとき実行
-hook_add = '''
-let g:deoplete#enable_at_startup = 1
-let g:python3_host_prog=$PYENV_ROOT.'/versions/anaconda3-5.3.1/bin/python'
-let g:python_host_prog=$PYENV_ROOT.'/versions/anaconda2-5.3.1/bin/python'
-'''
-
+#[[plugins]] # コード補完
+#repo = 'Shougo/deoplete.nvim'
+## プラグインが dein.vim によって追加されたとき実行
+#hook_add = '''
+#let g:deoplete#enable_at_startup = 1
+#let g:python3_host_prog=$PYENV_ROOT.'/versions/anaconda3-5.3.1/bin/python'
+#let g:python_host_prog=$PYENV_ROOT.'/versions/anaconda2-5.3.1/bin/python'
+#'''
+#
 #[[plugins]] # コード補完（Golang用）
 #repo = 'zchee/deoplete-go'
 #on_ft = 'go'

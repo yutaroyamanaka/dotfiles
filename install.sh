@@ -8,10 +8,11 @@ case "${OSTYPE}" in
     ;;
   linux*)
     sudo apt update
-    sudo apt install -y \
+    sudo apt upgrade
+    sudo apt install --no-install-recommends -y \
     make \
     build-essential \
-    software-properties-common
+    software-properties-common \
     libffi-dev \
     libssl-dev \
     zlib1g-dev \

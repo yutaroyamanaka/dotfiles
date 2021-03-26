@@ -9,7 +9,7 @@ case "${OSTYPE}" in
   linux*)
     sudo apt update
     sudo apt upgrade
-    sudo apt install --no-install-recommends -y \
+    sudo apt install -y \
     make \
     build-essential \
     software-properties-common \

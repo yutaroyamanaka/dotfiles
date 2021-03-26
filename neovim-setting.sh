@@ -8,3 +8,5 @@ echo 'export PYENV_PYTHON3_VERSION=3.7.0' >> ~/.bash_profile
 
 # neovim install
 pip3 install neovim
+# set neovim default
+echo 'alias vim=nvim' >> ~/.bash_profile

@@ -22,7 +22,7 @@ case "${OSTYPE}" in
     libsqlite3-dev \
     libncurses5-dev \
     xz-utils \
-    tk-dev \ 
+    tk-dev \
     libxml2-dev \
     libxmlsec1-dev \
     wget \

@@ -9,7 +9,7 @@ case "${OSTYPE}" in
   linux*)
     sudo apt update
     sudo apt install -y \
-    make
+    make \
     build-essential \
     software-properties-common
     libffi-dev \

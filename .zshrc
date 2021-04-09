@@ -20,6 +20,9 @@ alias ll="ls -la"
 alias his="history"
 alias vim='nvim'
 alias rm='gomi'
+alias -g lb='`git branch | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
+alias dps='docker ps --format "{{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Command}}\t{{.RunningFor}}"'
+alias de='docker exec -it `dps | peco | cut -f 1` /bin/bash'
 
 cdpath=(~)
 
@@ -27,9 +30,22 @@ zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 zstyle ':completion::complete:*' use-cache true
-bindkey '^r' history-incremental-pattern-search-backward
 bindkey '^s' history-incremental-pattern-search-forward
 zstyle ':zle:*' word-style unspecified
+
+function select-history() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+    BUFFER=$(fc -l -n 1 | eval $tac | peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle -R -c
+}
+zle -N select-history
+bindkey '^r' select-history
 
 autoload -Uz history-search-end
 zle -N history-beginning-search-backward-end history-search-end

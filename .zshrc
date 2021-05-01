@@ -23,6 +23,8 @@ alias rm='gomi'
 alias -g lb='`git branch | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
 alias dps='docker ps --format "{{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Command}}\t{{.RunningFor}}"'
 alias de='docker exec -it `dps | peco | cut -f 1` /bin/bash'
+alias cp='cp -i'
+alias mv='mv -i'
 
 cdpath=(~)
 
@@ -52,21 +54,6 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^p" history-beginning-search-backward-end
 bindkey "^b" history-beginning-search-forward-end
-
-
-RPROMPT="%{${fg[blue]}%}[%~]%{${reset_color}%}"
-autoload -Uz vcs_info
-setopt prompt_subst
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
-zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
-zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
-zstyle ':vcs_info:*' actionformats '[%b|%a]'
-precmd () { vcs_info }
-
-PROMPT="%(?.%{${fg[green]}%}.%{${fg[green]}%})%n${reset_color}@${fg[yellow]} %~ 
-%# "
-RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
 
 # -----------------------------
 # Plugin
@@ -99,3 +86,19 @@ fpath=(~/.zsh/completion $fpath)
 
 autoload -Uz compinit
 compinit
+
+# -----------------------------
+# PROMPT
+# -----------------------------
+autoload -Uz vcs_info
+setopt prompt_subst
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
+zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
+zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+precmd () { vcs_info }
+PROMPT="${fg[yellow]} %~"
+PROMPT=$PROMPT' ${vcs_info_msg_0_}'
+PROMPT="$PROMPT
+%# "

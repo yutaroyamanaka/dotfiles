@@ -8,7 +8,6 @@ case "${OSTYPE}" in
     ;;
   linux*)
     sudo apt update
-    sudo apt upgrade
     sudo apt install --no-install-recommends -y \
     make \
     build-essential \
@@ -33,36 +32,31 @@ case "${OSTYPE}" in
     ;;
 esac
 
-read -p "Activate symbolic link of .bashrc? (y/n) :" YN
+read -p "Activate symbolic link of .zshrc? (y/n) :" YN
 if [ "${YN}" = "y" ]; then 
-    ln -s ~/dotfiles/.bashrc ~/.bashrc
-fi
+    ln -s .zshrc ~/.zshrc
 
-read -p "install pyenv? (y/n)" YN
-if [ "${YN}" = "y" ]; then 
-     git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-     echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile
-     echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile
-     echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.bash_profile
-fi
-
-read -p "Activate symbolic link of git related shell file? (y/n) :" YN
-if [ "${YN}" = "y" ]; then
-  ln -s ~/dotfiles/.git-completion.bash ~/.git-completion.bash
-  ln -s ~/dotfiles/.git-prompt.sh ~/.git-prompt.sh
+    read -p "install pyenv? (y/n)" PYENV_INSTALL
+    if [ "${PYENV_INSTALL}" == "y"]; then
+        git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+        echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zprofile
+        echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zprofile
+        echo 'eval "$(pyenv init --path)"' >> ~/.zprofile
+        echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+    fi
 fi
 
 read -p "Activate symbolic link of dein file? (y/n) :" YN
 if [ "${YN}" = "y" ]; then
   mkdir -p ~/.cache/dein/
-  ln -s ~/dotfiles/.dein.toml ~/.cache/dein/.dein.toml
-  ln -s ~/dotfiles/.dein_lazy.toml ~/.cache/dein/.dein_lazy.toml
+  ln -s .dein.toml ~/.cache/dein/.dein.toml
+  ln -s .dein_lazy.toml ~/.cache/dein/.dein_lazy.toml
 fi
 
 read -p "Activate neovim? (y/n) :" YN
 if [ "${YN}" = "y" ]; then 
   mkdir -p ~/.config/nvim
-  ln -s ~/dotfiles/init.vim ~/.config/nvim/init.vim
+  ln -s init.vim ~/.config/nvim/init.vim
 fi
 
 read -p "Activate vim color theme? (y/n) :" YN
@@ -70,4 +64,9 @@ if [ "${YN}" = "y" ]; then
   mkdir -p ~/.vim/colors
   git clone https://github.com/tomasr/molokai
   mv molokai/colors/molokai.vim ~/.vim/colors/
+fi
+
+read -p "Set .gitconfig? (y/n) :" YN
+if [ "${YN}" = "y" ]; then
+  ln -s .gitconfig ~/.gitconfig
 fi

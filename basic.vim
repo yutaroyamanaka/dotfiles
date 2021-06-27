@@ -15,6 +15,7 @@ set showmatch
 set laststatus=2
 set wildmode=list:longest
 set helplang=en
+set nofixeol
 
 set clipboard=unnamed
 set t_Co=256

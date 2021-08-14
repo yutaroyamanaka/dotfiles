@@ -4,9 +4,3 @@ on_ft = 'toml'
 
 [[plugins]] # status line
 repo = 'itchyny/lightline.vim'
-
-[[plugins]] 
-repo = 'Shougo/deoplete.nvim'
-hook_add = '''
-let g:deoplete#enable_at_startup = 1
-'''

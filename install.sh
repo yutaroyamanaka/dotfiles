@@ -27,7 +27,9 @@ case "${OSTYPE}" in
     wget \
     llvm \
     curl \
-    git
+    git \
+    neovim \
+    peco
     ;;
 esac
 

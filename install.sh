@@ -34,7 +34,7 @@ esac
 
 read -p "Activate symbolic link of .zshrc? (y/n) :" YN
 if [ "${YN}" = "y" ]; then 
-    ln -s .zshrc ~/.zshrc
+    ln -s ${PWD}/.zshrc ${HOME}/.zshrc
 
     read -p "install pyenv? (y/n)" PYENV_INSTALL
     if [ "${PYENV_INSTALL}" == "y"]; then
@@ -49,14 +49,14 @@ fi
 read -p "Activate symbolic link of dein file? (y/n) :" YN
 if [ "${YN}" = "y" ]; then
   mkdir -p ~/.cache/dein/
-  ln -s .dein.toml ~/.cache/dein/.dein.toml
-  ln -s .dein_lazy.toml ~/.cache/dein/.dein_lazy.toml
+  ln -s ${PWD}/.dein.toml ${HOME}/.cache/dein/.dein.toml
+  ln -s ${PWD}/.dein_lazy.toml ${HOME}/.cache/dein/.dein_lazy.toml
 fi
 
 read -p "Activate neovim? (y/n) :" YN
 if [ "${YN}" = "y" ]; then 
   mkdir -p ~/.config/nvim
-  ln -s init.vim ~/.config/nvim/init.vim
+  ln -s ${PWD}/init.vim ${HOME}/.config/nvim/init.vim
 fi
 
 read -p "Activate vim color theme? (y/n) :" YN
@@ -68,5 +68,5 @@ fi
 
 read -p "Set .gitconfig? (y/n) :" YN
 if [ "${YN}" = "y" ]; then
-  ln -s .gitconfig ~/.gitconfig
+  ln -s ${PWD}/.gitconfig ${HOME}/.gitconfig
 fi

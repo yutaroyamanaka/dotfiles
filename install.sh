@@ -27,8 +27,7 @@ case "${OSTYPE}" in
     wget \
     llvm \
     curl \
-    git \
-    neovim
+    git
     ;;
 esac
 
@@ -37,7 +36,7 @@ if [ "${YN}" = "y" ]; then
     ln -s ${PWD}/.zshrc ${HOME}/.zshrc
 
     read -p "install pyenv? (y/n)" PYENV_INSTALL
-    if [ "${PYENV_INSTALL}" == "y"]; then
+    if [ "${PYENV_INSTALL}" = "y" ]; then
         git clone https://github.com/pyenv/pyenv.git ~/.pyenv
         echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zprofile
         echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zprofile

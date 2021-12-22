@@ -3,8 +3,7 @@
 case "${OSTYPE}" in
   darwin*)
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    brew install neovim openssl readline sqlite3 xz zlib # pyenv prerequisite
-    brew install git
+    brew install neovim openssl readline sqlite3 xz zlib neofetch git
     ;;
   linux*)
     sudo apt update
@@ -29,6 +28,7 @@ case "${OSTYPE}" in
     curl \
     git \
     neovim \
+    neofetch \
     peco
     ;;
 esac

@@ -1,12 +1,11 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-[[plugins]]
+[[plugins]] 
 repo = 'vim-airline/vim-airline'
 hook_add = '''
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linenr', ':%3v'])
 let g:airline#extensions#virtualenv#enabled = 1
 let g:airline#extensions#hunks#enabled = 0
 let g:airline#extensions#ale#enabled = 1
@@ -61,8 +60,14 @@ repo = 'mattn/vim-lsp-settings'
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 hook_add = '''
- let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 '''
 
 [[plugins]]
 repo = 'lighttiger2505/deoplete-vim-lsp'
+
+[[plugins]]
+repo = 'junegunn/fzf'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'

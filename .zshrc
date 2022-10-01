@@ -1,6 +1,18 @@
 setopt IGNOREEOF
 
-export PATH="$HOME/bin:$PATH"
+# -----------------------------
+# GO SETTING
+# -----------------------------
+GO_VERSION=$(go version | awk '{print $3}' | cut -c 3-)
+GOPATH=$HOME/.asdf/installs/golang/$GOVERSION/packages
+GOROOT=$HOME/.asdf/installs/golang/$GOVERSION/go
+path+=($GOPATH/bin)
+path+=($GOROOT/bin)
+
+# -----------------------------
+# PYTHON SETTING
+# -----------------------------
+PYTHON_VERSION=$(python3 --version | awk '{print $2}')
 
 autoload -Uz colors
 colors
@@ -18,7 +30,7 @@ setopt correct
 
 alias ll="ls -la"
 alias his="history"
-alias vim='nvim'
+alias vim="nvim"
 alias -g lb='`git branch | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
 alias dps='docker ps --format "{{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Command}}\t{{.RunningFor}}"'
 alias de='docker exec -it `dps | peco | cut -f 1` /bin/bash'
@@ -102,4 +114,6 @@ PROMPT=$PROMPT' ${vcs_info_msg_0_}'
 PROMPT="$PROMPT
 %# "
 
+#asdf
+. /usr/local/opt/asdf/libexec/asdf.sh
 neofetch

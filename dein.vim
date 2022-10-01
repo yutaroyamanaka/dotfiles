@@ -5,8 +5,7 @@ filetype plugin indent off
 syntax off
 
 " python setting
-let g:python_host_prog  = $PYENV_ROOT . '/versions/' . $PYENV_PYTHON2_VERSION . '/bin/python'
-let g:python3_host_prog = $PYENV_ROOT . '/versions/' . $PYENV_PYTHON3_VERSION . '/bin/python'
+let g:python3_host_prog = $HOME . '/.asdf/shims/python'
 
 let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'

@@ -4,8 +4,8 @@ setopt IGNOREEOF
 # GO SETTING
 # -----------------------------
 GO_VERSION=$(go version | awk '{print $3}' | cut -c 3-)
-GOPATH=$HOME/.asdf/installs/golang/$GOVERSION/packages
-GOROOT=$HOME/.asdf/installs/golang/$GOVERSION/go
+GOPATH=$HOME/.asdf/installs/golang/$GO_VERSION/packages
+GOROOT=$HOME/.asdf/installs/golang/$GO_VERSION/go
 path+=($GOPATH/bin)
 path+=($GOROOT/bin)
 

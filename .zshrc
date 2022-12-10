@@ -3,11 +3,8 @@ setopt IGNOREEOF
 # -----------------------------
 # GO SETTING
 # -----------------------------
-GO_VERSION=$(go version | awk '{print $3}' | cut -c 3-)
-GOPATH=$HOME/.asdf/installs/golang/$GO_VERSION/packages
-GOROOT=$HOME/.asdf/installs/golang/$GO_VERSION/go
+GOPATH=$(go env GOPATH)
 path+=($GOPATH/bin)
-path+=($GOROOT/bin)
 
 # -----------------------------
 # PYTHON SETTING
@@ -36,6 +33,8 @@ alias dps='docker ps --format "{{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Command}}\t{
 alias de='docker exec -it `dps | peco | cut -f 1` /bin/bash'
 alias cp='cp -i'
 alias mv='mv -i'
+alias rm='rm -i'
+alias kc='kubectl-ctx | peco | xargs kubectl-ctx'
 
 cdpath=(~)
 
@@ -114,6 +113,18 @@ PROMPT=$PROMPT' ${vcs_info_msg_0_}'
 PROMPT="$PROMPT
 %# "
 
-#asdf
+# -----------------------------
+# asdf
+# -----------------------------
 . /usr/local/opt/asdf/libexec/asdf.sh
+
+# -----------------------------
+# k8s
+# -----------------------------
+path+=(${KREW_ROOT:-$HOME/.krew}/bin)
+source <(kubectl completion zsh)
+
+# -----------------------------
+# neofetch
+# -----------------------------
 neofetch

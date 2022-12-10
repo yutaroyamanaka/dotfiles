@@ -34,7 +34,6 @@ alias de='docker exec -it `dps | peco | cut -f 1` /bin/bash'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
-alias kc='kubectl-ctx | peco | xargs kubectl-ctx'
 
 cdpath=(~)
 
@@ -123,6 +122,8 @@ PROMPT="$PROMPT
 # -----------------------------
 path+=(${KREW_ROOT:-$HOME/.krew}/bin)
 source <(kubectl completion zsh)
+alias kc='kubectl ctx | peco | xargs kubectl ctx'
+alias kn='kubectl ns | peco | xargs kubectl ns'
 
 # -----------------------------
 # neofetch
